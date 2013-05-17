@@ -1,0 +1,15 @@
+﻿*{
+  margin:0;
+  padding:0;
+}
+body{
+	width:100%;
+	margin:auto;
+	background:#790000;
+	}
+#top{
+	width:100%;
+	height:76px;
+	float:left;
+	background:url(/static/images/top.jpg) no-repeat;
+	}

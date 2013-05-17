@@ -1,0 +1,28 @@
+$def with(ctx)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账户登录</title>
+<link href="style/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="login_top"></div>
+     <div id="login_bg">
+     <form  id='form1' name='form1' method='post' action='$ctx["action"]'>
+       <div id="login_inst">
+        <div id="login_user">账&nbsp;&nbsp;户：<input type="text" name="user" id="user" class="login_input" />
+        </div>
+        <div id="login_user">密&nbsp;&nbsp;码：<input type="password" name="psw" id="psw" class="login_input" />
+        </div>
+       </div>
+       <div id="login_btn">
+           <input type="submit" class="ipt-b" id="login" value="" name="" onclick="" />
+       </div>
+       <div id="login_msg">提示：$ctx['msg']</div>
+     </div>
+     </form>        
+  <div id="login_foot"></div>
+</body>
+</html>

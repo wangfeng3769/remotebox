@@ -1,0 +1,68 @@
+$def with(ctx)
+$ readonlyInput="";displayget="";displayok="none";acturl=ctx['action']
+$# ctx["POSTOK"]="Y"
+$ if "POSTOK" in ctx: readonlyInput="readonly";displayget="none";displayok=""
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据交换源配置</title>
+<link href="/style/main.css" rel="stylesheet" type="text/css" />
+<script id =s1 type="text/javascript" src="/js/box_ok.js">
+</script>
+</head>
+
+<body>
+<div id="main_top_bg"></div>
+  <div id="content">
+    <form id="form1" name="form1"  method="post" action="$ctx['action']" >
+     <div id="title">数据交换源配置</div>
+     <div id="note">进行BOX访问的数据提供方的相关配置</div>
+      <!-- 内容开始 -->
+      <div id="cont"> 
+        <div id="localpro_cont1">IP地址</div>
+        <div id="localpro_cont2">
+          <input name="IP" type="text" id="IP" class="input_localpro" value="$ctx['values']['IP']"  $readonlyInput />
+        </div>
+        <div id="localpro_cont3">（内网中数据交换源的IP）</div>
+      </div>
+      <div id="cont">
+       <div id="localpro_cont1">PORT</div>
+       <div id="localpro_cont6">
+          <input name="PORT" type="text" id="PORT" class="input_diset" value="$ctx['values']['PORT']"  $readonlyInput />
+       </div>
+       <div id="localpro_cont3">（内网中数据交换源的端口）</div>
+      </div>
+      <div id="cont">
+       <div id="localpro_cont1">账户名称</div>
+       <div id="localpro_cont8">
+          <input name="USER" type="text" id="USER" class="input_user" value="$ctx['values']['USER']"  $readonlyInput />
+       </div>
+       <div id="localpro_cont3">（访问内网数据交换源的登录账户)</div>
+      </div>
+      <div id="cont">
+       <div id="localpro_cont1">密码</div>
+       <div id="localpro_cont7">
+         <input name="PSW" type="text" id="PSW" class="input_pass" value="$ctx['values']['PSW']"  $readonlyInput /></div>   
+       <div id="localpro_cont3">（内网数据交换源的登录账户密码）</div>
+      </div>
+      <div id="cont">
+        <div id="localpro_cont1"  style="display">
+            
+         </div>
+         <div id="localpro_cont2">
+           <div id="sub1" style="display:$displayget ">
+            <input type="submit" name="button" id="button" value="&nbsp;提交&nbsp;" class="but_ok" />
+           </div>
+           <div id="sub2" style="display:$displayok ">
+             <input type="button" name="button1" id="button1" value="&nbsp;确定&nbsp;" class="but_ok" onclick="topok()"/>
+             <input type="button" name="button2" id="button2" value="&nbsp;重新配置&nbsp;" class="but_reset"   onclick="doredirct('$acturl ')"/>
+           </div>
+         </div>
+      </div>
+      <!-- 内容结束 -->
+     </form>
+  </div>
+</body>
+</html>

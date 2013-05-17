@@ -1,0 +1,117 @@
+$def with(ctx)
+$ readonlyInput="";displayget="";displayok="none";acturl=ctx['action']
+$# ctx["POSTOK"]="Y"
+$ if "POSTOK" in ctx: readonlyInput="readonly";displayget="none";displayok=""
+$ displayftp="none";valueftp=""
+$ if "FTPPATH" in ctx['values']: displayftp="";valueftp=ctx['values']["FTPPATH"]
+$ tag=""
+$ if("Lsnrtag" in ctx): tag=ctx["Lsnrtag"]
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无线发送配置</title>
+<link href="/style/main.css" rel="stylesheet" type="text/css" />
+<script id =s1 type="text/javascript" src="/js/box_ok.js">
+</script>
+</head>
+<script>
+
+function onChkEBL(elec,ele,t1st){
+//alert(t1st)
+   if('$readonlyInput'  == "readonly"){
+   //alert(t1st!="Y")
+      if(t1st!="Y") {       elec.checked=!elec.checked;
+        return;}
+     }
+     
+   if(elec.checked){
+      ele.value="Y"
+      document.getElementById("ds_setter").style.display="";
+      return;
+   }
+   document.getElementById("ds_setter").style.display="none";
+   //alert(document.getElementById("ds_setter"));
+   ele.value="N";
+}
+function setChkEBL(elec,ele){
+   if(ele.value=="Y"){
+      elec.checked=true
+      return
+   }
+   elec.checked=false
+}
+</script>
+<body>
+<div id="main_top_bg"></div>
+  <div id="content">
+    <form id="form1" name="form1"  method="post" action="$ctx['action']" >
+     <div id="title">无线发送配置</div>
+     <div id="note">进行BOX发送数据中心的相关配置报告</div>
+      <!-- 内容开始 -->
+      <div id="cont"> 
+        <div id="localpro_cont1">  $tag  </div>
+        <div id="localpro_cont2">
+          <div id="localpro_cont4">
+          <input name="EBL" type="text" id="EBL" class="input_localpro" value="$ctx['values']['EBL']"  style="display:none"/>
+          <input type="checkbox" name="EBLc" id="EBLc" class="checkbox_localpro" onclick="onChkEBL(this,document.getElementById('EBL'))"  $readonlyInput />
+          	<script>
+          	setChkEBL(document.getElementById("EBLc"),document.getElementById("EBL"))
+          	</script>
+          </div>
+          <div id="localpro_cont5">启用</div>
+       </div> 
+        <div id="localpro_cont3"></div>
+      </div>
+      <div id="ds_setter" style='display:none'>
+      <div id="cont">
+       <div id="localpro_cont1">无线IP地址</div>
+       <div id="localpro_cont2">
+         <input name="IP" type="text" id="IP" class="input_localpro" value="$ctx['values']['IP']"  $readonlyInput />
+       </div>
+       <div id="localpro_cont3">（数据中心的无线IP）</div>
+      </div>
+      <div id="cont">
+       <div id="localpro_cont1">PORT</div>
+       <div id="localpro_cont6">
+         <input name="PORT" type="text" id="PORT" class="input_diset" value="$ctx['values']['PORT']"  $readonlyInput />
+       </div>
+       <div id="localpro_cont3">（数据中心的端口）</div>
+      </div>
+      <div id="cont">
+       <div id="localpro_cont1">轮询周期</div>
+       <div id="localpro_cont6">
+         <input name="TIMER" type="text" id="TIMER" class="input_diset" value="$ctx['values']['TIMER']"  $readonlyInput />
+       </div>   
+       <div id="localpro_cont3">（单位秒，缺省为600&lt;10分钟&gt;)</div>
+      </div>
+      <div id="cont" style='display:$displayftp ' >
+       <div id="localpro_cont1">FTP路径</div>
+       <div id="localpro_cont6">
+         <input name="FTPPATH" type="text" id="FTPPATH" class="input_localpro" value="$valueftp "  $readonlyInput />
+       </div>   
+       <div id="localpro_cont3">本类别对应的FTP路径</div>
+      </div>
+     </div>
+      <div id="cont">
+        <div id="localpro_cont1">         </div>
+         <div id="localpro_cont2">
+           <div id="sub1" style="display:$displayget ">
+           <input type="submit" name="button" id="button" value="&nbsp;提交&nbsp;" class="but_ok" />
+           </div>
+           <div id="sub2" style="display:$displayok ">
+           <input type="button" name="button1" id="button1" value="&nbsp;确定&nbsp;" class="but_ok" onclick="topok()"/>
+           <input type="button" name="button2" id="button2" value="&nbsp;重新配置&nbsp;" class="but_reset" onclick="doredirct('$acturl ')"/></div>
+          </div>
+       </div>
+     
+      
+      <!-- 内容结束 -->
+      <script>
+      onChkEBL(document.getElementById("EBLc"),document.getElementById("EBL"),"Y")
+      </script>
+     </form>
+  </div>
+</body>
+</html>

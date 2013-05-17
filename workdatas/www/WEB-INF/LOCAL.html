@@ -1,0 +1,162 @@
+$def with(ctx)
+$ readonlyInput="";displayget="";displayok="none";acturl=ctx['action'];postokf="topok()";displayloc="none"
+$# ctx["POSTOK"]="Y"
+$ if "POSTOK" in ctx: readonlyInput="readonly";displayget="none";displayok=""
+$ if "POSTOKF"  in ctx: postokf=ctx["POSTOKF"]
+$ if "Y"==ctx["LOCREBOOT"]:displayloc="none"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>本机配置</title>
+<link href="/style/main.css" rel="stylesheet" type="text/css" />
+<script id =s1 type="text/javascript" src="/js/box_ok.js">
+</script>
+<script>
+
+function doChkChanged(elec,tarname){
+   if(elec==null)
+      return ;
+      
+   document.getElementById(tarname).value=elec.value;
+   //alert(elec.value)
+   //alert(document.getElementById("LOCAL_CAPTYPE").value)
+}
+
+function onChkEBL(elec,ele,t1st){
+//alert(t1st)
+   if('$readonlyInput'  == "readonly"){
+   //alert(t1st!="Y")
+      if(t1st!="Y") {       elec.checked=!elec.checked;
+        return;}
+     }
+     
+   if(elec.checked){
+      ele.value="Y"
+      document.getElementById("ds_setter").style.display="";
+      return;
+   }
+   document.getElementById("ds_setter").style.display="none";
+   //alert(document.getElementById("ds_setter"));
+   ele.value="N";
+}
+
+function setChkEBL(elec,ele){
+   if(ele.value=="Y"){
+      elec.checked=true
+      return
+   }
+   elec.checked=false
+}
+</script>
+</head>
+
+<body>
+<div id="main_top_bg"></div>
+  <div id="content">
+    <form id="form1" name="form1"  method="post" action="$ctx['action']" >
+     <div id="title">本机配置</div>
+     <div id="note">进行BOX本机工作模式的配置</div>
+      <!-- 内容开始 -->
+      <div id="cont">
+       <div id="localpro_cont1">数据获取模式</div>
+       <div id="localpro_cont2">
+           <select name="LOCAL_CAPTYPE1" class="localpro_select" id="LOCAL_CAPTYPE1"  style="display: $displayget "  onchange="doChkChanged(this,'LOCAL_CAPTYPE')">
+             <option value="FTP" >FTP</option>
+			 <option value="DB" >DB</option>
+			 <script>
+			    document.getElementById("LOCAL_CAPTYPE1").value="$ctx['values']['LOCAL_CAPTYPE']"
+			 	document.getElementById("LOCAL_CAPTYPE").value="$ctx['values']['LOCAL_CAPTYPE']"
+			 	//alert(document.getElementById("LOCAL_CAPTYPE").value)
+			 </script>
+           </select>
+           <input style="display: $displayok " name="LOCAL_CAPTYPE" type="text" id="LOCAL_CAPTYPE" class="input_localpro" value="$ctx['values']['LOCAL_CAPTYPE']"  $readonlyInput />
+        </div>   
+       <div id="localpro_cont3"></div>
+      </div>
+      
+      <div id="cont">
+          <div id="localpro_cont1"></div>
+          <div id="localpro_cont4">
+          <input name="UPDATE_AUTO" type="text" id="UPDATE_AUTO" class="input_localpro" value="$ctx['values']['UPDATE_AUTO']"  style="display:none"/>
+          <input type="checkbox" name="EBLc" id="EBLc" class="checkbox_localpro" onclick="onChkEBL(this,document.getElementById('UPDATE_AUTO'))"  $readonlyInput />
+          	<script>
+          	setChkEBL(document.getElementById("EBLc"),document.getElementById("UPDATE_AUTO"))
+          	</script>
+          </div>
+        <div id="localpro_cont3">启用自动更新</div>
+      </div>
+      <div id="ds_setter" style='display:none'>
+	      <div id="cont">
+	       <div id="localpro_cont1">自动更新启动时间</div>
+	       <div id="localpro_cont2">
+	         <select name="UPDATE_TIME_H1" class="localpro_select" id="UPDATE_TIME_H1"  style="display: $displayget "  onchange="doChkChanged(this,'UPDATE_TIME_H')">
+             <option value="00" >00</option>
+             <option value="01" >01</option>
+			 <option value="02" >02</option>
+			 <option value="03" >03</option>
+			 <option value="04" >04</option>
+			 <option value="05" >05</option>
+			 <option value="06" >06</option>
+			 <option value="07" >07</option>
+			 <option value="08" >08</option>
+			 <option value="09" >09</option>
+			 <option value="10" >10</option>
+             <option value="11" >11</option>
+			 <option value="12" >12</option>
+			 <option value="13" >13</option>
+			 <option value="14" >14</option>
+			 <option value="15" >15</option>
+			 <option value="16" >16</option>
+			 <option value="17" >17</option>
+			 <option value="18" >18</option>
+			 <option value="19" >19</option>
+			 <option value="20" >20</option>
+             <option value="21" >21</option>
+			 <option value="22" >22</option>
+			 <option value="23" >23</option>
+			 <script>
+			    document.getElementById("UPDATE_TIME_H1").value="$ctx['values']['UPDATE_TIME_H']"
+			 	document.getElementById("UPDATE_TIME_H").value="$ctx['values']['UPDATE_TIME_H']"
+			 	//alert(document.getElementById("LOCAL_CAPTYPE").value)
+			 </script>
+           </select>
+	         <input style="display: $displayok " name="UPDATE_TIME_H" type="text" id="UPDATE_TIME_H" class="input_localupg" value="$ctx['values']['UPDATE_TIME_H']"  $readonlyInput />
+	         :
+	         <select name="UPDATE_TIME_M1" class="localupg_select" id="UPDATE_TIME_M1"  style="display: $displayget "  onchange="doChkChanged(this,'UPDATE_TIME_M')">
+             <option value="00" >00</option>
+			 <option value="10" >10</option>
+			 <option value="20" >20</option>
+			 <option value="30" >30</option>
+			 <option value="40" >40</option>
+			 <option value="50" >50</option>
+			 <script>
+			    document.getElementById("UPDATE_TIME_M1").value="$ctx['values']['UPDATE_TIME_M']"
+			 	document.getElementById("UPDATE_TIME_M").value="$ctx['values']['UPDATE_TIME_M']"
+			 	//alert(document.getElementById("LOCAL_CAPTYPE").value)
+			 </script>
+	         <input style="display: $displayok " name="UPDATE_TIME_M" type="text" id="UPDATE_TIME_M" class="input_localupg" value="$ctx['values']['UPDATE_TIME_M']"  $readonlyInput />
+	       </div>
+	       <div id="localpro_cont3">设置自动更新启动时间（时:分）</div>
+	      </div>
+	  </div>
+      <div id="cont">
+        <div id="localpro_cont1"></div>
+         <div id="localpro_cont2">
+           <div id="sub1" style="display:$displayget ">
+           <input type="submit" name="button" id="button" value="&nbsp;提交&nbsp;" class="but_ok" />
+           </div>
+           <div id="sub2" style="display:$displayok ">
+           <input type="button" name="button1" id="button1" value="&nbsp;确定&nbsp;" class="but_ok" onclick="$postokf "/>
+             <input type="button" name="button2" id="button2" value="&nbsp;重新配置&nbsp;" class="but_reset"  onclick="doredirct('$acturl ')"/></div>
+          </div>
+          </div>
+      </div>
+      <!-- 内容结束  topok() toReboot() -->
+      <script>
+      onChkEBL(document.getElementById("EBLc"),document.getElementById("UPDATE_AUTO"),"Y")
+      </script>
+     </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+$def with(ctx)
+$ readonlyInput="readonly";displaydostart="";displaydostop="none";
+$ if ctx["COMM"] is "OK": displaydostart="none";displaydostop=""
+$ if "AUTORUN" not in ctx: displaydostart="none";displaydostop="none"
+$ displaybase="none"; basecmd="";baseerr="";
+$ if "BASE" in ctx: displaybase=""; basecmd=ctx["BASE"]["CMD"];baseerr=ctx["BASE"]["ERR"];
+$ displayatt="none"; attcmd="";atterr="";
+$ if "ATTEN" in ctx: displayatt=""; attcmd=ctx["ATTEN"]["CMD"];atterr=ctx["ATTEN"]["ERR"];
+$ displayrl="none"; rlcmd="";rlerr="";
+$ if "REAL" in ctx: displayrl=""; rlcmd=ctx["REAL"]["CMD"];rlerr=ctx["REAL"]["ERR"];
+$ displayrl1="none"; rl1cmd="";rl1err="";
+$ if "REAL1" in ctx: displayrl1=""; rl1cmd=ctx["REAL1"]["CMD"];rl1err=ctx["REAL1"]["ERR"];
+$ displayrlp="none"; rlpcmd="";rlperr="";
+$ if "REALP" in ctx: displayrlp=""; rlpcmd=ctx["REALP"]["CMD"];rlperr=ctx["REALP"]["ERR"]; 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Empty</title>
+<link href="/style/main.css" rel="stylesheet" type="text/css" />
+<script id =s1 type="text/javascript" src="/js/box_ok.js">
+</script>
+</head>
+
+<body>
+<div id="main_top_bg"></div>
+  <div id="content">
+     <div id="title">系统运行状态及控制</div>
+     <div id="note">$ctx["mssg"]</div>
+       <!-- 内容开始 -->
+      <div id="cont">
+	       <div id="deviceno_cont1">系统运行状态</div>
+	       <div id="deviceno_cont2">
+	                $ctx["COMM"]
+	       </div>
+	       <div id="deviceno_cont3"> 
+	           <input type="button" name="button" id="button0" value="&nbsp;启动&nbsp;" onclick="topredirct('/R/onStart')" class="but_ok" style="display:$displaydostart " />
+	           <input type="button" name="button1" id="button1" value="&nbsp;停止&nbsp;" onclick="topredirct('/R/onStop')" class="but_ok" style="display:$displaydostop " />
+	       </div>
+      </div>
+      <div id="cont" style="display:$displaybase " >
+	       <div id="deviceno_cont1">基础数据情况</div>
+	       <div id="deviceno_cont2">
+	             $basecmd   
+	       </div>
+	       <div id="deviceno_cont3"> 
+	             $baseerr
+	       </div>
+      </div>
+      <div id="cont" style="display:$displayatt " >
+	       <div id="deviceno_cont1">考勤数据情况</div>
+	       <div id="deviceno_cont2">
+	             $attcmd  
+	       </div>
+	       <div id="deviceno_cont3"> 
+	             $atterr
+	       </div>
+      </div>
+      <div id="cont" style="display:$displayrl " >
+	       <div id="deviceno_cont1">实时数据情况</div>
+	       <div id="deviceno_cont2">
+	             $rlcmd   
+	       </div>
+	       <div id="deviceno_cont3"> 
+	             $rlerr
+	       </div>
+      </div>
+      <div id="cont" style="display:$displayrl1 " >
+	       <div id="deviceno_cont1">报警数据情况</div>
+	       <div id="deviceno_cont2">
+	             $rl1cmd  
+	       </div>
+	       <div id="deviceno_cont3"> 
+	           $rl1err
+	       </div>
+      </div>
+      <div id="cont" style="display:$displayrlp " >
+	       <div id="deviceno_cont1">数据补差情况</div>
+	       <div id="deviceno_cont2">
+	             $rlpcmd   
+	       </div>
+	       <div id="deviceno_cont3"> 
+	             $rlperr 
+	       </div>
+      </div>
+       <!-- 内容结束 -->
+  </div>
+</body>
+</html>
+<script>
+//alert(topok)
+</script>

@@ -1,0 +1,15 @@
+﻿*{
+  margin:0;
+  padding:0;
+}
+body{
+	width:90%;
+	margin:auto;
+	background:#efefef;
+	}
+#font{
+	font-size:12px;
+	line-height:25px;
+	text-align:right;
+	color:#555555;
+}

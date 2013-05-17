@@ -1,0 +1,46 @@
+$def with(ctx)
+$ readonlyInput="";displayget="";displayok="none";acturl=ctx['action']
+$# ctx["POSTOK"]="Y"
+$ if "POSTOK" in ctx: readonlyInput="readonly";displayget="none";displayok=""
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>设备编码配置</title>
+<link href="/style/main.css" rel="stylesheet" type="text/css" />
+<script id =s1 type="text/javascript" src="/js/box_ok.js">
+</script>
+</head>
+<script>
+function displaymessage(){alert(hello)}
+ 
+
+</script>
+
+<body>
+<div id="main_top_bg"></div>
+  <div id="content">
+    <form id="form1" name="form1"  method="post" action="$ctx['action']" >
+     <div id="title">设备编码配置</div>
+     <div id="note">进行BOX设备码的配置</div>
+       <!-- 内容开始 -->
+      <div id="cont">
+       <div id="deviceno_cont1">设备编码</div>
+       <div id="deviceno_cont2">
+          <input id="DEVCODE" name="DEVCODE" type="text" class="input_boxsn" value="$ctx['values']['DEVCODE']" $readonlyInput />
+           <input style="display: $displayget " type="submit" name="button" id="button" value="&nbsp;提交&nbsp;" class="but_ok" />
+           <input style="display: $displayok " type="button" name="button1" id="button1" value="&nbsp;确定&nbsp;" class="but_ok" onclick="topok()"/>
+           <input style="display: $displayok " type="button" name="button2" id="button2" value="&nbsp;重新配置&nbsp;" class="but_reset" onclick="doredirct('$acturl ')"/>
+       </div>
+       <div id="deviceno_cont3">（十一位数字，初始值='00000000000'）</div>
+       
+       </div>
+       <!-- 内容结束 -->
+   </form>
+  </div>
+</body>
+</html>
+<script>
+//alert(topok)
+</script>

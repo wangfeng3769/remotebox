@@ -1,0 +1,86 @@
+﻿*{
+  margin:0;
+  padding:0;
+}
+body{
+	width:100%;
+	margin:auto;
+	background:#4c0101;
+	}
+#login_top{
+	width:522px;
+	height:209px;
+	background:url(../images/login_top.png) no-repeat;
+	margin:auto;
+	margin-top:150px;
+	}
+#login_bg{
+	width:522px;
+	height:90px;
+	background:url(../images/login_bg.png) repeat-y;
+	margin:auto;
+}
+#login_foot{
+	width:522px;
+	height:22px;
+	background:url(../images/login_foot.png) repeat-y;
+	margin:auto;
+}
+#login_inst{
+	width:170px;
+	height:auto;
+	float:left;
+	padding-left:90px;
+}
+#login_user{
+	width:170px;
+	height:21px;
+	font-size:12px;
+	font-weight:bold;
+	color:#555555;
+	line-height:21px;
+	padding-top:10px;
+}
+.login_input{
+	width:105px;
+	height:20px;
+	line-height:20px;
+}
+#login_btn{
+	width:62px;
+	height:55px;
+	float:left;
+	margin-top:10px;
+	background:url(../images/login_btn.gif) no-repeat;
+}
+/*--以下为登录按钮样式--*/
+.ipt-b {font-weight:bold;font-size:12px;cursor:pointer}
+.ipt-b {
+	width:62px;
+	height:55px;
+	border:0;
+	background:0;
+	padding:0;}
+.ipt-b {
+	width:62px;
+	height:55px;
+	background-image:url(../images/login_btn_b.gif);
+	background-repeat:no-repeat
+	}
+.ipt-t {
+	width:62px;
+	height:55px;
+	background-image:url(../images/login_btn_b.gif);
+	background-repeat:no-repeat
+	}
+/*--以上为登录按钮样式--*/
+
+#login_msg{
+	width:420px;
+	height:24px;
+	font-size:12px;
+	line-height:24px;
+	color:#444444;
+	padding-left:90px;
+	float:left;
+}

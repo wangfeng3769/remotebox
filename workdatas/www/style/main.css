@@ -1,0 +1,218 @@
+﻿/*====== 内容页面主体共用样式 ======*/
+*{
+  margin:0;
+  padding:0;
+}
+body{
+	background:#fff;
+	}
+#main_right{
+	width:813px;
+	height:auto;
+	float:left;
+}
+#main_top_bg{
+	width:813px;
+	height:46px;
+	float:left;
+	background:url(../images/main_top_bg.jpg) no-repeat;
+}
+#content{
+	width:790px;
+	height:auto;
+	float:left;
+	margin:auto;
+}
+#title{
+	width:704px;
+	height:25px;
+	font-size:12px;
+	font-weight:bold;
+	line-height:25px;
+	color:#cb0000;
+	background:url(../images/tit_line.gif) bottom no-repeat;
+	margin: auto 50px auto auto;
+}
+#note{
+	width:704px;
+	height:25px;
+	font-size:12px;
+	line-height:25px;
+	color:#999999;
+	margin: auto 50px 50px auto;
+}
+
+/*=========内容页面样式===========*/
+#cont{
+	width:813px;
+	padding-bottom:10px;
+	float:left;
+}
+.but_ok{
+	width:50px;
+	font-size:12px;
+}
+
+/*--- 设备编码配置页 ---*/
+#deviceno_cont1{
+	width:150px;
+	height:30px;
+	font-size:12px;
+	text-align:right;
+	font-weight:bold;
+	line-height:21px;
+	color:#555555;
+	padding-left:30px;
+	padding-right:10px;
+	float:left;
+}
+#deviceno_cont2{
+	width:150px;
+	height:30px;
+	float:left;
+}
+.input_boxsn{
+	width:90px;
+	height:16px;
+	line-height:16px;
+	font-size:14px;
+	color:#555555;
+	padding:2px;
+}
+#deviceno_cont3{
+	width:200px;
+	height:30px;
+	font-size:12px;
+	line-height:21px;
+	color:#999999;
+	padding-left:5px;
+	float:left;
+}
+
+
+/*--- 配置页 ---*/
+#localpro_cont1{
+	width:150px;
+	height:30px;
+	font-size:12px;
+	text-align:right;
+	font-weight:bold;
+	line-height:21px;
+	color:#555555;
+	padding-left:30px;
+	padding-right:10px;
+	float:left;
+}
+#localpro_cont2{
+	width:130px;
+	height:30px;
+	line-height:30px;
+	float:left;
+}
+.input_localpro{
+	width:120px;
+	height:16px;
+	line-height:16px;
+	font-size:14px;
+	color:#555555;
+	padding:2px;
+}
+.input_localupg{
+	width:20px;
+	height:16px;
+	line-height:16px;
+	font-size:14px;
+	color:#555555;
+	padding:2px;
+}
+#localpro_cont3{
+	width:200px;
+	height:30px;
+	font-size:12px;
+	line-height:21px;
+	color:#999999;
+	padding-left:5px;
+	float:left;
+}
+.localpro_select{
+	width:auto;
+	height:21px;
+	font-size:12px;
+	line-height:21px;
+	color:#555555;
+}
+.checkbox_localpro{
+	width:auto;
+	height:20px;
+	line-height:21px;
+}
+#localpro_cont4{
+	width:20px;
+	height:30px;
+	font-size:12px;
+	color:#555555;
+	float:left;
+}
+#localpro_cont5{
+	width:60px;
+	height:30px;
+	line-height:21px;
+	font-size:12px;
+	color:#555555;
+	float:left;
+}
+#localpro_cont6{
+	width:60px;
+	height:30px;
+	line-height:21px;
+	font-size:12px;
+	color:#555555;
+	float:left;
+}
+#localpro_cont7{
+	width:100px;
+	height:30px;
+	line-height:21px;
+	font-size:12px;
+	color:#555555;
+	float:left;
+}
+#localpro_cont8{
+	width:110px;
+	height:30px;
+	line-height:21px;
+	font-size:12px;
+	color:#555555;
+	float:left;
+}
+.input_pass{
+	width:90px;
+	height:20px;
+	line-height:30px;
+	float:left;
+}
+
+
+/*--- 数据交换源配置 ---*/
+.input_diset{
+    width:50px;
+	height:16px;
+	line-height:16px;
+	font-size:14px;
+	color:#555555;
+	padding:2px;
+}
+.input_user{
+    width:100px;
+	height:16px;
+	line-height:16px;
+	font-size:14px;
+	color:#555555;
+	padding:2px;
+}
+
+.login_input{
+	width:105px;
+	height:20px;
+	line-height:20px;
+}
